@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+// import RecipeCard from './components/recipe-card';
+import { FormControl, InputLabel, Input, Button, Grid } from '@mui/material';
+import { useEffect, useState } from 'react';
+import edamam from './apis/edamam';
+import axios from 'axios';
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    search();
+  }, []);
+
+  const search = async () => {
+    const response = await edamam.get();
+
+    console.log(response);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='receipe-app'>
+      <Grid container spacing={2} columns={16} className="uuu">
+        <FormControl style={{width: '100%'}}>
+          <Grid item>
+            <InputLabel>Type</InputLabel>
+            <Input id="my-input" />
+          </Grid>
+          <Grid item>
+            <Button variant="contained">Search</Button>
+          </Grid>
+        </FormControl>
+      </Grid>
+      {/* <RecipeCard /> */}
     </div>
   );
-}
+};
 
 export default App;
