@@ -1,8 +1,7 @@
 // import RecipeCard from './components/recipe-card';
-import { FormControl, InputLabel, Input, Button, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
 import edamam from './apis/edamam';
-import axios from 'axios';
+import SearchBar from './components/search/search-bar';
 
 const App = () => {
   useEffect(() => {
@@ -17,18 +16,7 @@ const App = () => {
 
   return (
     <div className='receipe-app'>
-      <Grid container spacing={2} columns={16} className="uuu">
-        <FormControl style={{width: '100%'}}>
-          <Grid item>
-            <InputLabel>Type</InputLabel>
-            <Input id="my-input" />
-          </Grid>
-          <Grid item>
-            <Button variant="contained">Search</Button>
-          </Grid>
-        </FormControl>
-      </Grid>
-      {/* <RecipeCard /> */}
+      <SearchBar label="What are you craving today?" />
     </div>
   );
 };
