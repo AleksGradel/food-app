@@ -2,11 +2,13 @@ import { TextField, InputAdornment, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 
+import './search-bar.scss'
+
 const SearchBar = ({ label }) => {
     const [searchTerm, setTerm] = useState('');
 
     return (
-        <div>
+        <div className='search-bar'>
             <TextField
                 style={{ width: '100%' }}
                 label={label}
