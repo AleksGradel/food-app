@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import edamam from './apis/edamam';
 import SearchBar from './components/search/search-bar';
+import Filters from './components/filter/filters';
 import RecipesList from './components/recipes/recipes-list';
 
 import LinearProgress from '@mui/material/LinearProgress';
@@ -52,6 +53,7 @@ const App = () => {
       <SearchBar 
         triggerSearch={triggerSearch}
         label="What are you craving today?" />
+      <Filters/>
       <ShowSpinner />
       <RecipesList recipes={recipes} />
     </div>
