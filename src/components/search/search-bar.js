@@ -1,4 +1,6 @@
-import { FormControl, TextField, Button } from '@mui/material';
+import { FormControl, TextField, InputAdornment, IconButton } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+
 import { useState } from 'react';
 
 import './search-bar.scss'
@@ -8,14 +10,13 @@ const SearchBar = ({ label, triggerSearch }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
+
+        // triggerSearch(searchTerm);
     };
 
     const handleTermChange = e => {
         setTerm(e.target.value);
-        console.log(searchTerm);
-    };
 
-    const handleSearch = () => {
         triggerSearch(searchTerm);
     };
 
@@ -26,8 +27,16 @@ const SearchBar = ({ label, triggerSearch }) => {
                     label={label}
                     value={searchTerm}
                     onChange={handleTermChange}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="start">
+                                <IconButton>
+                                <SearchIcon />
+                                </IconButton>
+                            </InputAdornment>
+                        )
+                    }}
                 />
-                <Button variant="contained" type="submit" onClick={handleSearch}>Search</Button>
             </FormControl>
         </div>
     );

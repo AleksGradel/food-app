@@ -2,32 +2,36 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import { Grid } from '@mui/material';
+import { Chip, Grid } from '@mui/material';
+
+import RecipeModal from './recipe-modal';
 
 import './recipe-card.scss';
 
-const RecipeCard = ({ label, source, description }) => {
+const RecipeCard = ({ label, source, description, recipeLink, ingredients }) => {
     return (
         <Grid item xs={12} sm={6} md={4}>
             <div className="recipe-card">
                 <Card sx={{ maxWidth: 300, minHeight: 300 }}>
-                    <CardActionArea>
-                        <CardMedia
-                        component="img"
-                        height="140"
-                        image={source}
-                        alt={label}
-                        />
-                        <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
+                    <CardMedia
+                    component="img"
+                    height="140"
+                    image={source}
+                    alt={label}
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h6" component="div">
                             {label}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            {description}
+                            <Chip label={description} color="primary" variant="outlined" />
                         </Typography>
-                        </CardContent>
-                    </CardActionArea>
+                    </CardContent>
+                    <RecipeModal 
+                        label={label}
+                        recipeLink={recipeLink}
+                        ingredients={ingredients}
+                    />
                 </Card>
             </div>
         </Grid>

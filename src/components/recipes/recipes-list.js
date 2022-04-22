@@ -10,7 +10,9 @@ const RecipesList = ({ recipes }) => {
                 key={recipe.recipe.label}
                 label={recipe.recipe.label} 
                 source={recipe.recipe.images.REGULAR.url}
-                description={recipe.recipe.cuisineType}/>
+                description={recipe.recipe.cuisineType}
+                recipeLink={recipe.recipe.url}
+                ingredients={recipe.recipe.ingredients} />
         )
     })
     return (
