@@ -16,10 +16,8 @@ const MultipleSelect = ({ items, tag }) => {
     return (
         <div className='multiple-select'>
           <FormControl sx={{ pl: 1, width: '10rem' }}>
-            <InputLabel id="demo-multiple-checkbox-label">{tag}</InputLabel>
+            <InputLabel>{tag}</InputLabel>
             <Select
-              labelId="demo-multiple-checkbox-label"
-              id="demo-multiple-checkbox"
               multiple
               value={value}
               onChange={handleChange}

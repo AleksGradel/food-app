@@ -4,16 +4,12 @@ import SearchBar from './components/search/search-bar';
 import Filters from './components/filter/filters';
 import RecipesList from './components/recipes/recipes-list';
 
-import LinearProgress from '@mui/material/LinearProgress';
-
 const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState('');
-  const [isLoading, handleLoading] = useState(false);
 
   useEffect(() => {
-    const timeOutId = setTimeout(() => search(), 0);
-    return () => clearTimeout(timeOutId);
+    search();
   }, [query]);
 
   const triggerSearch = searchTerm => {
@@ -27,26 +23,10 @@ const App = () => {
       }
     }, 0);
 
-    handleLoading(true);
-
     setRecipes(response.data.hits);
 
-    handleLoading(false);
     console.log(response);
   }
-
-  const ShowSpinner = () => {
-    if (isLoading === false) {
-      return;
-    } else {
-      return (
-        <div>
-          hej <br />
-          <LinearProgress />
-        </div>
-      );
-    }
-  };
 
   return (
     <div className='receipe-app'>
@@ -54,7 +34,6 @@ const App = () => {
         triggerSearch={triggerSearch}
         label="What are you craving today?" />
       <Filters/>
-      <ShowSpinner />
       <RecipesList recipes={recipes} />
     </div>
   );

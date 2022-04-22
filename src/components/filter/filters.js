@@ -6,9 +6,18 @@ import './filters.scss';
 const Filter = () => {
     return (
         <div className="filters">
-            <MultipleSelect items={labels.dietLabel} tag="Diet"/>
-            <MultipleSelect items={labels.mealLabel} tag="Meal type"/>
-            <MultipleSelect items={labels.mealLabel} tag="Meal type"/>
+            <MultipleSelect
+                id="diet-labels"
+                items={labels.dietLabel} 
+                tag="Diet" />
+            <MultipleSelect
+                id="meal-labels"
+                items={labels.mealLabel} 
+                tag="Meal type" />
+            <MultipleSelect
+                id="health-restrictions"
+                items={labels.healthLabel} 
+                tag="Health restrictions" />
         </div>
     )
 };
