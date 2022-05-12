@@ -1,45 +1,48 @@
-import { FormControl, TextField, InputAdornment, IconButton } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import {
+  FormControl,
+  TextField,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import './search-bar.scss'
+import "./search-bar.scss";
 
 const SearchBar = ({ label, triggerSearch }) => {
-    const [searchTerm, setTerm] = useState('');
+  const [searchTerm, setTerm] = useState("");
 
-    const handleSubmit = e => {
-        e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
-        // triggerSearch(searchTerm);
-    };
+  const handleTermChange = (e) => {
+    setTerm(e.target.value);
 
-    const handleTermChange = e => {
-        setTerm(e.target.value);
+    triggerSearch(searchTerm);
+  };
 
-        triggerSearch(searchTerm);
-    };
-
-    return (
-        <div className='search-bar'>
-            <FormControl style={{ width: '100%' }} onSubmit={handleSubmit}>
-                <TextField
-                    label={label}
-                    value={searchTerm}
-                    onChange={handleTermChange}
-                    InputProps={{
-                        endAdornment: (
-                            <InputAdornment position="start">
-                                <IconButton>
-                                <SearchIcon />
-                                </IconButton>
-                            </InputAdornment>
-                        )
-                    }}
-                />
-            </FormControl>
-        </div>
-    );
+  return (
+    <div className="search-bar">
+      <FormControl style={{ width: "100%" }} onSubmit={handleSubmit}>
+        <TextField
+          label={label}
+          value={searchTerm}
+          onChange={handleTermChange}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="start">
+                <IconButton>
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
+      </FormControl>
+    </div>
+  );
 };
 
 export default SearchBar;

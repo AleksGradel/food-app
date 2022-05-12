@@ -1,9 +1,12 @@
-.recipe-modal {
-    ul {
-        list-style-type: circle;
-    }
-    .recipe-link {
-        display: flex;
-        justify-content: end;
+.css-6xddht-MuiTypography-root-MuiLink-root {
+    display: flex;
+    justify-content: end;
+}
+
+.css-79ws1d-MuiModal-root {
+    .css-1acyv19 {
+        @media only screen and (max-width: 600px) {
+            width: 75%;
+        }
     }
 }
